@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-6 offset-3">
+    <form (ngSubmit)="onSubmit()" #eventForm="ngForm" *ngIf="event" action="">
+      <div class="form-group mt-4">
+        <label for="eventEvent">Event:</label>
+        <input id="eventEvent" name="name" [(ngModel)]="event.name" type="text" class="form-control" required pattern=".{8,}" #eventN="ngModel">
+        <div class="character-warning" [hidden]="eventN.valid || eventN.pristine">
+          Az event-nek legalább 8 karakterből kell állnia.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="eventDate">Date:</label>
+        <input id="eventDate" name="date" type="text" class="form-control" [(ngModel)]="event.date" required>
+      </div>
+      <div class="form-group">
+        <label for="eventTime">Time:</label>
+        <input id="eventTime" name="time" type="text" class="form-control" [(ngModel)]="event.time" required>
+      </div>
+      <div class="form-group">
+        <label for="eventAddress">Address:</label>
+        <input id="eventAddress" name="address" type="text" class="form-control" [(ngModel)]="event.location.address" required>
+      </div>
+      <div class="form-group">
+        <label for="eventCity" >City:</label>
+        <input id="eventCity" name="city" type="text" class="form-control" [(ngModel)]="event.location.city" required>
+      </div>
+      <div class="form-group">
+        <label for="eventCountry">Country:</label>
+        <input id="eventCountry" name="country" type="text" class="form-control" [(ngModel)]="event.location.country">
+      </div>
+      <div d-flex justify-content-end>
+      <button [disabled]="!eventForm.form.valid" type="submit" class="btn btn-success">Update</button>
+      </div>
+    </form>
+    <pre>
+
+    </pre>
+  </div>
+</div>
