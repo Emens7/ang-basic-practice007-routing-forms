@@ -5,28 +5,43 @@
         <label for="eventEvent">Event:</label>
         <input id="eventEvent" name="name" [(ngModel)]="event.name" type="text" class="form-control" required pattern=".{8,}" #eventN="ngModel">
         <div class="character-warning" [hidden]="eventN.valid || eventN.pristine">
-          Az event-nek legalább 8 karakterből kell állnia.
+          Az Even-t kitöltése kötelező. Legalább 8 karaktert kell tartalmaznia.
         </div>
       </div>
       <div class="form-group">
         <label for="eventDate">Date:</label>
-        <input id="eventDate" name="date" type="text" class="form-control" [(ngModel)]="event.date" required>
+        <input id="eventDate" name="date" type="text" class="form-control" [(ngModel)]="event.date" required #eventD="ngModel">
+        <div class="character-warning" [hidden]="eventD.valid || eventD.pristine">
+          A Date kitöltése kötelező.
+        </div>
       </div>
       <div class="form-group">
         <label for="eventTime">Time:</label>
-        <input id="eventTime" name="time" type="text" class="form-control" [(ngModel)]="event.time" required>
+        <input id="eventTime" name="time" type="text" class="form-control" [(ngModel)]="event.time" required #eventT="ngModel">
+        <div class="character-warning" [hidden]="eventT.valid || eventT.pristine">
+          A Time kitöltése kötelező.
+        </div>
       </div>
       <div class="form-group">
         <label for="eventAddress">Address:</label>
-        <input id="eventAddress" name="address" type="text" class="form-control" [(ngModel)]="event.location.address" required>
+        <input id="eventAddress" name="address" type="text" class="form-control" [(ngModel)]="event.location.address" required #eventAddress="ngModel">
+        <div class="character-warning" [hidden]="eventAddress.valid || eventAddress.pristine">
+          Az Address kitöltése kötelező.
+        </div>
       </div>
       <div class="form-group">
         <label for="eventCity" >City:</label>
-        <input id="eventCity" name="city" type="text" class="form-control" [(ngModel)]="event.location.city" required>
+        <input id="eventCity" name="city" type="text" class="form-control" [(ngModel)]="event.location.city" required #eventCity="ngModel">
+        <div class="character-warning" [hidden]="eventCity.valid || eventCity.pristine">
+          A City kitöltése kötelező.
+        </div>
       </div>
       <div class="form-group">
         <label for="eventCountry">Country:</label>
-        <input id="eventCountry" name="country" type="text" class="form-control" [(ngModel)]="event.location.country">
+        <input id="eventCountry" name="country" type="text" class="form-control" [(ngModel)]="event.location.country" required #eventCountry="ngModel">
+        <div class="character-warning" [hidden]="eventCountry.valid || eventCountry.pristine">
+          A Country kitöltése kötelező.
+        </div>
       </div>
       <div d-flex justify-content-end>
       <button [disabled]="!eventForm.form.valid" type="submit" class="btn btn-success">Update</button>
